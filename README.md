@@ -50,7 +50,7 @@ Copy `.env.example` to `.env.local` and add your local values
 ```
 VITE_TOKEN_SERVER_URL=/api
 VITE_API_URL=https://demo-api.incodesmile.com
-VITE_SDK_URL=https://sdk.incode.com/sdk/onBoarding-1.70.0.js
+VITE_SDK_URL=https://sdk.incode.com/sdk/onBoarding-1.71.0.js
 
 #Enable for 1:N
 #VITE_CLIENT_ID=<your client id>
