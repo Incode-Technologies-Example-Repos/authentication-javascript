@@ -71,3 +71,6 @@ run `npm run build`
 A new build will be created in `/dist` you can serve that build everywhere
 just remember to serve with https.
 
+# Author
+
+© Incode Technologies Inc. All rights reserved.
