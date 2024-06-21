@@ -5,7 +5,6 @@ const mainContainer = document.getElementById("app");
 const loginContainer = document.getElementById("login");
 const loginButton = document.getElementById("login-button");
 
-
 function showError(e=null) {
   mainContainer.innerHTML = "Something Went Wrong, see console for details...";
   console.log(e)
@@ -64,10 +63,6 @@ async function app() {
     // apiKey // Enable for 1:N
   });
   
-  // Incode web_sdk need to preload some core component before being usable
-  mainContainer.innerHTML = "Warming up...";
-  await onBoarding.warmup();
-  
   // Empty the message and starting the flow
   mainContainer.innerHTML = "";
   loginContainer.style.display="flex";
@@ -77,5 +72,4 @@ async function app() {
     identifyUser(identityIdInput.value)
   })
 }
-+
 document.addEventListener("DOMContentLoaded", app);
