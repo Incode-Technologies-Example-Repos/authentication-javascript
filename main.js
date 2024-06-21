@@ -5,7 +5,6 @@ const mainContainer = document.getElementById("app");
 const loginContainer = document.getElementById("login");
 const loginButton = document.getElementById("login-button");
 
-
 function showError(e=null) {
   mainContainer.innerHTML = "Something Went Wrong, see console for details...";
   console.log(e)
@@ -73,5 +72,4 @@ async function app() {
     identifyUser(identityIdInput.value)
   })
 }
-
 document.addEventListener("DOMContentLoaded", app);
