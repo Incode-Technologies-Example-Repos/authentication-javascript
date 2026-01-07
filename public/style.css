@@ -1,87 +1,196 @@
-html, body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
+/* ===== Global layout ===== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-#login {
-    display: flex;
-    flex-grow: 1;
-    justify-content: center;
-    flex-direction: column;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: radial-gradient(circle at top left, #eef2ff 0, #f9fafb 40%, #f3f4f6 100%);
+  color: #111827;
 }
 
-#login label, #login input, #login button{
-    display: block;
-    width: 100%;
+/* Center everything nicely */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* ===== Shared container for login + Incode ===== */
+
+.app-container {
+  width: 100%;
+  max-width: 520px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
+  padding: 32px 32px 24px;
+}
+
+/* If you’re still using #app in vanilla JS, this keeps it centered */
 #app {
-    flex-grow: 1;
+  width: 100%;
+  max-width: 520px;
 }
 
+/* ===== Title & text ===== */
 
-
-
-/* Incode Login */
-/* Main container for the Incode login component. */
-.IncodeLoginContainer {
-}
-/* Container that holds the capture button within the Incode login component. */
-.IncodeLoginCaptureButtonContainer {
-}
-/* Container holding the webcam view in the Incode login component. */
-.IncodeLoginWebcamContainer {
-}
-/* Container for borders in the Incode login component. */
-.IncodeLoginBordersContainer {
-}
-/* Borders during loading states within the Incode login component. */
-.IncodeLoginLoadingBorders {
-}
-/* This class is used to hide login in the Incode login component. */
-.IncodeLoginHidder {
-}
-/* Outer part of the oval-shaped camera frame in the Incode login component. */
-.IncodeLoginCameraOvalOuter {
-}
-/* Inner part of the oval-shaped camera frame in the Incode login component. */
-.IncodeLoginCameraOvalInner {
-}
-/* Frame that indicates the user's face area during login. */
-.IncodeLoginFaceFrame {
-}
-/* Webcam in the Incode login component. */
-.IncodeLoginWebcam {
-}
-/* Text inside the oval-shaped camera frame in the Incode login component. */
-.IncodeLoginCameraOvalInnerText {
-}
-/* Inline notifications that appear within the Incode login component. */
-.IncodeLoginNotificationInline {
+.app-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  margin: 0 0 1rem;
+  text-align: center;
 }
 
-/* Incode Login Desktop */
-/* Main container for the Incode login component in desktop view. */
+.app-subtitle {
+  font-size: 0.95rem;
+  color: #6b7280;
+  text-align: center;
+  margin: 0 0 1.75rem;
+}
+
+/* ===== React / vanilla login form ===== */
+
+#login,
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+#login label,
+.login-form label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #4b5563;
+}
+
+#login input,
+.login-form input {
+  width: 100%;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+  padding: 0 0.75rem;
+  font-size: 0.95rem;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+#login input:focus,
+.login-form input:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 1px rgba(79, 70, 229, 0.35);
+}
+
+#login button,
+.login-form button {
+  margin-top: 0.25rem;
+  height: 40px;
+  border: none;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, filter 0.1s ease;
+}
+
+#login button:disabled,
+.login-form button:disabled {
+  background: #e5e7eb;
+  color: #9ca3af;
+  cursor: default;
+  box-shadow: none;
+  transform: none;
+}
+
+#login button:not(:disabled):hover,
+.login-form button:not(:disabled):hover {
+  filter: brightness(1.03);
+  box-shadow: 0 10px 25px rgba(79, 70, 229, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Status text under the form */
+.status {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.4rem;
+}
+
+/* ===== Where the Incode component will render ===== */
+
+#incode-container {
+  margin-top: 1rem;
+}
+
+/* ===== Incode SDK customisation ===== */
+/* (You can tweak these colors / sizes to match your brand) */
+
+.IncodeLoginContainer,
 .IncodeLoginDesktopContainer {
+  border-radius: 24px;
+  background: #0f172a;
+  padding: 24px 16px 32px;
+  color: #f9fafb;
 }
-/* Container that holds the capture button within the Incode login desktop component. */
-.IncodeLoginDesktopCaptureButtonContainer {
-}
-/* Container holding the webcam view in the Incode login desktop component. */
-.IncodeLoginDesktopWebcamContainer {
-}
-/* Class used for styling the face mask in the Incode login desktop component. */
+
+/* The main circle / oval frame */
+.IncodeLoginCameraOvalOuter,
 .IncodeLoginDesktopFaceMask {
+  border-radius: 999px;
+  border: 3px solid #4f46e5;
 }
-/* Frame that indicates the user's face area during login in the desktop view. */
+
+.IncodeLoginCameraOvalInner,
 .IncodeLoginDesktopFaceFrame {
+  border-radius: 999px;
+  border: 2px dashed #e5e7eb;
 }
-/* Webcam in the Incode login desktop component. */
-.IncodeLoginDesktopWebcam {
+
+/* Text inside camera */
+.IncodeLoginCameraOvalInnerText {
+  font-size: 0.95rem;
+  font-weight: 500;
 }
-/* Notifications that appear within the Incode login desktop component. */
+
+/* Capture button on camera screen */
+.IncodeLoginCaptureButtonContainer button,
+.IncodeLoginDesktopCaptureButtonContainer button {
+  font-family: inherit;
+  border-radius: 999px;
+  background: #f9fafb;
+  color: #111827;
+  padding: 0.65rem 1.6rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.IncodeLoginCaptureButtonContainer button:hover,
+.IncodeLoginDesktopCaptureButtonContainer button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.4);
+}
+
+/* Notifications inside the Incode component */
+.IncodeLoginNotificationInline,
 .IncodeLoginDesktopNotification {
+  font-size: 0.8rem;
+  background: rgba(15, 23, 42, 0.85);
+  padding: 0.4rem 0.6rem;
+  border-radius: 12px;
 }
