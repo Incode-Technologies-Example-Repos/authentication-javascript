@@ -39,13 +39,6 @@ export default function Success() {
         </p>
       </div>
 
-      <details style={{ marginTop: "1rem" }}>
-        <summary>Technical details</summary>
-        <pre style={{ fontSize: "0.8rem", overflowX: "auto" }}>
-          {JSON.stringify({ interviewToken }, null, 2)}
-        </pre>
-      </details>
-
       <button style={{ marginTop: "1.5rem" }} onClick={() => navigate("/")}>
         Logout / Try again
       </button>

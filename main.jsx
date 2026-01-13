@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, useNavigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import Success from "./Success";
 
 const apiURL = import.meta.env.VITE_API_URL;
@@ -18,6 +18,8 @@ function App() {
   function finish(customerId, email, interviewToken) {
     const end = performance.now();
     const durationMs = end - loginStartRef.current;
+    const container = document.getElementById("incode-container");
+    if (container) container.innerHTML = "";
 
     navigate("/success", {
     state: {
@@ -149,31 +151,35 @@ function App() {
   };
 
   return (
-    <div className="app-container">
-      <h1>Face Authentication</h1>
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <div className="app-container">
+            <h1>Face Authentication</h1>
 
-      <form className="login-form" onSubmit={handleLogin}>
-        <label htmlFor="identity-id">Employee ID:</label>
-        <input
-          id="identity-id"
-          type="text"
-          value={identityId}
-          onChange={(e) => setIdentityId(e.target.value)}
-          autoFocus
-        />
-        <button
-          type="submit"
-          disabled={loading || !onBoarding || !identityId}
-        >
-          {loading ? "Authenticating..." : "Login"}
-        </button>
-      </form>
+            <form className="login-form" onSubmit={handleLogin}>
+              <label htmlFor="identity-id">Employee ID:</label>
+              <input
+                id="identity-id"
+                type="text"
+                value={identityId}
+                onChange={(e) => setIdentityId(e.target.value)}
+                autoFocus
+              />
+              <button type="submit" disabled={loading || !onBoarding || !identityId}>
+                {loading ? "Authenticating..." : "Login"}
+              </button>
+            </form>
+            <div id="incode-container" />
 
-      {/* Where the Incode webSDK UI will be rendered */}
-      <div id="incode-container" />
+            {statusMessage && <p className="status">{statusMessage}</p>}
+          </div>
+        }
+      />
 
-      {statusMessage && <p className="status">{statusMessage}</p>}
-    </div>
+      <Route path="/success" element={<Success />} />
+    </Routes>
   );
 }
 

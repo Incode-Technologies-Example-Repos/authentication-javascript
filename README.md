@@ -1,6 +1,6 @@
-#Face Authentication Sample — Incode WebSDK
+# Face Authentication Sample — Incode WebSDK
 
-##Requirements
+## Requirements
 
 - Node.js ≥ 20
 
@@ -31,13 +31,13 @@ You should have running your project at:
 
 ![alt text](image.png)
 
-#### Positive Scenario
+### Positive Scenario
 Enter a valid Identity Id registered in your organization and perform the Authentication
 
 Expected Behavior:
 The user should be able to login successfully
 
-#### Negative Scenario
+### Negative Scenario
 Enter a not registered value and try to perform the Authentication
 
 Expected Behavior:
