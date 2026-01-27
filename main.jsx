@@ -99,10 +99,11 @@ function App() {
     e.preventDefault();
 
     if (!onBoarding) return;
-    if (!identityId) {
-      setStatusMessage("Please enter an Employee ID");
-      return;
-    }
+    // NOTE: uncomment this line when using 1:1
+    // if (!identityId) {
+    //   setStatusMessage("Please enter an Employee ID");
+    //   return;
+    // }
 
     loginStartRef.current = performance.now();
     console.log("⏱️ Login started");
@@ -114,14 +115,15 @@ function App() {
 
     try {
       onBoarding.renderLogin(container, {
-        isOneToOne: true,
+        isOneToOne: false, //set to true when 1:1
         lensesCheckEnabled: false,
         maskCheckEnabled: false,
         hatCheckEnabled: false,
         eyesClosedCheckEnabled: false,
-        oneToOneProps: {
-          identityId,
-        },
+        //NOTE uncomment this line when 1:1
+        // oneToOneProps: {
+        //   identityId,
+        // },
         onSuccess: async (response) => {
           try {
             if (response.faceMatch) {
@@ -159,15 +161,8 @@ function App() {
             <h1>Face Authentication</h1>
 
             <form className="login-form" onSubmit={handleLogin}>
-              <label htmlFor="identity-id">Employee ID:</label>
-              <input
-                id="identity-id"
-                type="text"
-                value={identityId}
-                onChange={(e) => setIdentityId(e.target.value)}
-                autoFocus
-              />
-              <button type="submit" disabled={loading || !onBoarding || !identityId}>
+              
+              <button type="submit" >
                 {loading ? "Authenticating..." : "Login"}
               </button>
             </form>

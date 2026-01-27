@@ -25,7 +25,6 @@ app.post('/verify', async (req, res) => {
   const faceMatchData = JSON.parse(req.body.toString());
   const {token, transactionId, interviewToken} = faceMatchData;
   const verificationParams = { token,transactionId, interviewToken };
-  
   let response={};
   try{
     const verifyAttemptUrl = `${process.env.API_URL}/omni/authentication/verify`;

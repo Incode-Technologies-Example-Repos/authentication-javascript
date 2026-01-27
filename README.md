@@ -16,12 +16,12 @@ Access to:
 
 - Token server endpoint (if using biometrics validation through backend)
 
-##Getting Started
+## Getting Started
 
-####1. Install Dependencies
+#### 1. Install Dependencies
 ``npm install``
 
-####2. Run the Development Server
+#### 2. Run the Development Server
 ``npm run dev``
 
 You should have running your project at:

@@ -1,0 +1,75 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: #f3f6fb;
+}
+
+#root {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.app-container {
+  width: min(520px, 100%);
+  background: white;
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+}
+
+.login-form label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 8px;
+  color: #334155;
+}
+
+.login-form input {
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  font-size: 16px;
+}
+
+.login-form button {
+  width: 100%;
+  height: 48px;
+  margin-top: 14px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 600;
+  background: #4f46e5;
+  color: white;
+  cursor: pointer;
+}
+
+.login-form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.status {
+  margin-top: 14px;
+  font-size: 14px;
+  color: #475569;
+}
+
+#incode-container {
+  margin-top: 18px;
+  width: 100%;
+  max-width: 520px;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+.IncodeLoginContainer,
+.IncodeLoginDesktopContainer {
+  max-width: 100% !important;
+}
